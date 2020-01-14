@@ -1,0 +1,43 @@
+{
+  "name": "nicksnellock/communications",
+  "type": "project",
+  "description": "Communications exercise",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.2",
+    "php-di/php-di": "^6.0",
+    "guzzlehttp/guzzle": "^6.5",
+    "twig/twig": "^3.0",
+    "myclabs/php-enum": "^1.7.2",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "facade/ignition": "^1.4",
+    "fzaninotto/faker": "^1.4",
+    "mockery/mockery": "^1.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "classmap": [
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+  }
+}

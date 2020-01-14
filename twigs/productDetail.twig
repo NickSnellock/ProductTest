@@ -1,0 +1,22 @@
+{% include 'templates/header.twig' %}
+<div>
+    Name: {{ name }}
+</div>
+<div>
+    Description: {{ description }}
+</div>
+<div>
+    Type: {{ type }}
+</div>
+<div>
+    <p>Suppliers:</p>
+    <ul class="list-group list-group-flush">
+        {% for supplier in suppliers %}
+            <li class="list-group-item">{{ supplier }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<nav justify-content-center">
+<a class="nav-link active" href="/">Return to list</a>
+</nav>
+{% include 'templates/footer.twig' %}

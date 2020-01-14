@@ -1,0 +1,7 @@
+{% include 'templates/header.twig' %}
+<ul class="list-group list-group-flush">
+    {% for productKey, product in products %}
+        <li class="list-group-item"><a href="./index.php?productId={{ productKey|trim }}">{{ product }}</a></li>
+    {% endfor %}
+</ul>
+{% include 'templates/footer.twig' %}

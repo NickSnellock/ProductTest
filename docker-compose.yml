@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+
+  #  The Application
+  app:
+    container_name: producttest_app
+    build:
+      context: ./
+      dockerfile: development/app.dockerfile
+    volumes:
+      - ./:/var/www
+      - ./storage:/var/www/storage
+    environment:
+      - "PHP_IDE_CONFIG=serverName=docker-server"
+
+  # The Web Server
+  web:
+    container_name: producttest_nginx
+    build:
+      context: ./
+      dockerfile: development/web.dockerfile
+    volumes:
+      - ./storage/logs/:/var/log/nginx
+    ports:
+      - 8080:80
