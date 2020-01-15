@@ -42,6 +42,8 @@ class ProductController
             $productListArray = $this->comms->getList();
         } catch (ProductListException $ex) {
             error_log('Unable to retrieve list of products');
+        } catch (Exception $ex) {
+            error_log($ex->getMessage());
         }
         foreach ($productListArray as $productId => $product) {
             $productListArray[$productId] = StringSanitiser::sanitise($product);
@@ -52,7 +54,11 @@ class ProductController
 
     public function getProductDetail(string $productKey)
     {
-        $productArray = $this->comms->getProductDetail($productKey)[$productKey];
+        try {
+            $productArray = $this->comms->getProductDetail($productKey)[$productKey];
+        } catch (Exception $ex) {
+            error_log($ex->getMessage());
+        }
 
         $productTypeString = strtoupper($productArray['type']);
         try {
